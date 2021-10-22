@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="./css/styles.css" />
+  <title>eyes.ai</title>
+</head>
+<body>
+  <header>
+    <div class="navbar">
+      <a href="/" class="brand-logo"><div>eyes.ai</div></a>
+      <div>
+        <% if (user) { %> 
+          <div class="dropdown">
+            <div class="dropbtn">
+              <div class="authLink">
+                <span><%= user.username %> </span>
+              <div id="arrow" class="rightArrow"></div>
+            </div>
+            <div class="dropdownContent">
+              <a href="/users">Dashboard</a>
+              <a href="/courses">Courses</a>
+              <a href="/tasks">My Tasks</a>
+              <a href="/users/logout">Logout</a>
+            </div>
+          </div>
+        </div>
+        <% } else { console.log(user);%> 
+        <div class="authLink">
+          <a href="/signin">
+            <span>Sign In /</span>
+          </a>
+          <a href="/signup" style="color: black;">
+            <span>Sign Up<span>
+          </a>
+        </div>
+        <% } %> 
+      </div>
+    </div>
+  </header>

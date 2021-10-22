@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+  <%- include("./partials/head.ejs") %>
+
+    <article class="courseHeader">
+      <div>
+        <h1>Deep Learning For Computer Vision</h1>
+      </div>
+    </article>
+
+    <div class="LessonContainer">
+      <% Object.keys(courses).forEach(key => { %>
+        <div class="lesson" id="lesson1">
+          <a href="/courseLessons/<%= courses[key]._id %>">
+            <h1><%= courses[key].index %>  :</h1>
+            <p><%= courses[key].LessonName %></p>
+            <% if (user.courses[key.match(/\d/g).join('')-1].Completed) {  %> 
+            <div><img src="images/check-mark.png" alt=""></div>
+            <% } %> 
+          </a>
+        </div>
+        <% }) %> 
+    </div>
+
+    <script src="demo.js"></script>
+  </body>
+</html>

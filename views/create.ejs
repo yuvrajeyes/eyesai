@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+  <%- include("./partials/head.ejs") %>
+
+  <div class="tasks">
+    <%- include("./partials/tasknav.ejs") %>
+  <div class="taskContent">
+    <form action="/tasks" method="POST">
+      <label for="description">Task Description:</label>
+      <textarea id="body" name="Description"></textarea>
+      <div>
+        <label for="taskStatus">Completed ?:</label>
+        <input type='checkbox' name='Completed'>
+      </div>
+      <div style="margin: 10px 0;">
+        <label for="taskDeadline">Task Deadline:</label>
+        <input type="date" name="Deadline" placeholder="DD/MM/YYYY">
+        <input type="time" name="Time">
+      </div>
+      <input type="submit" value="Submit">
+    </form>
+  </div>
+
+  <script src="demo.js"></script>
+</body>
+</html>

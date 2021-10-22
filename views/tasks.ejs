@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+  <%- include("./partials/head.ejs") %>
+
+  <div class="tasks">
+    <%- include("./partials/tasknav.ejs") %>
+
+    <% if (tasks.length > 0) { %>
+      <% tasks.forEach(task => { %>
+        <% if ( task.owner.equals(user._id)) { %> 
+          <a class="single" href="/tasks/<%= task._id %>" >
+            <h3 class="taskDescription"><%= task.Description %></h3>
+            <% if (! task.Completed) { %>
+              <p class="taskDeadline">Deadline: <%= task.Deadline %></p>
+            <% } else { %>
+              <p class="taskStatus">Completed</p>
+            <% } %>
+          </a>
+        <% } %> 
+      <% }) %>
+    <% } else { %>
+      <p style="color: hsla(0deg, 10%, 50%); width: 90%; margin: 50px auto; max-width: 550px;">There are no tasks to display...</p>
+    <% } %>
+    
+  </div>
+  <script src="demo.js"></script>
+</body>
+</html>

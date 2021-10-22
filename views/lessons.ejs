@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/css/styles.css" />
+    <title>Document</title>
+  </head>
+  <body>
+    <header>
+      <div class="navbar">
+        <a href="/" class="brand-logo"><div>eyes.ai</div></a>
+        <div>
+          <% if (user) { %> 
+            <div class="dropdown">
+              <div class="dropbtn">
+                <div class="authLink">
+                  <span><%= user.username %> </span>
+                <div id="arrow" class="rightArrow"></div>
+              </div>
+              <div class="dropdownContent">
+                <a href="/homepage">Dashboard</a>
+                <a href="/courses">Courses</a>
+                <a href="/tasks">My Tasks</a>
+                <a href="/users/logout">Logout</a>
+              </div>
+            </div>
+          </div>
+          <% } else { console.log(user);%> 
+          <div class="authLink">
+            <a href="/signin">
+              <span>Sign In /</span>
+            </a>
+            <a href="/signup" style="color: black;">
+              <span>Sign Up<span>
+            </a>
+          </div>
+          <% } %> 
+        </div>
+      </div>
+    </header>
+   
+    <div class="LessonHeader">
+      <h1><%= lesson.index %> :</h1>
+      <p><%= lesson.LessonName %></p>
+
+      <% var index = user.courses.findIndex(function (item, i) {
+        return item._id.toString() === lesson._id.toString();
+      }); %> 
+
+      <% if ( !user.courses[index].Completed) { %>
+        <span class="lessonDeadline">Deadline: <%= user.courses[index].Deadline %> </span> 
+      
+      <% } else { %>
+        <span class="lessonStatus">Completed</span>
+      <% } %>
+    </div>
+    
+    <article class="mainContent">
+      <div>
+        <p>
+          <%= lesson.Description %> 
+        </p>
+        <a class="slides" href="<%= lesson.Slides %> ">Click here for the Slides</a>
+      </div>
+    </article>
+    <center>
+      <iframe src="<%= lesson.url %> " title="YouTube video player" 
+        frameborder="0" allowfullscreen
+        allow="accelerometer; autoplay; clipboard-write; 
+        encrypted-media; gyroscope; picture-in-picture">
+      </iframe>
+    </center>
+
+    <div class="bottomNav">
+      <div>
+        <% if (index > 0) { %> 
+        <a style="margin-right: 20px; margin-bottom: 10px;" href="/courseLessons/<%= user.courses[index - 1]._id %>">Previous</a>
+        <% } %> 
+        <a href="/courseLessons">Back to course</a>
+      </div>
+      <div>
+        <% if (index < user.courses.length - 1) { %>
+        <a style="margin-right: 20px; margin-bottom: 10px;" href="/courseLessons/<%= user.courses[index + 1]._id %>">Next</a>
+        <% } %> 
+        <% if ( !user.courses[index].Completed) { %> 
+          <form action="/courseLessons/<%=user.courses[index]._id %>" method="post">
+            <button class="markComplete">Mark As Complete</button>
+          </form>
+        <% } %> 
+      </div>
+    </div>
+    
+    <script>
+      let dropdownContent = document.querySelector(".dropdownContent");
+      let rightArrow = document.querySelector(".rightArrow"); //show-card
+      let authLink = document.querySelector(".authLink");
+      
+      let classes = rightArrow.classList;
+      
+      authLink.addEventListener("click", function () {
+        let result = classes.toggle("downArrow");
+      
+        if (result) {
+          dropdownContent.classList.add("show");
+        } else {
+          dropdownContent.classList.remove("show");
+        }
+      });
+    </script>
+  </body>
+</html>

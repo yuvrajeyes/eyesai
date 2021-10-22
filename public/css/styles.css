@@ -1,0 +1,634 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat&family=Roboto&display=swap");
+
+/* font-family: 'Montserrat', sans-serif;
+font-family: 'Roboto', sans-serif; */
+
+body {
+  font-family: "Montserrat", sans-serif;
+  box-sizing: border-box;
+  margin: 0;
+}
+
+p,
+h1,
+h2,
+h3,
+a,
+ul {
+  margin: 0;
+  padding: 0;
+  text-decoration: none;
+  color: #222;
+}
+
+a {
+  font-family: "Roboto", sans-serif;
+}
+
+header {
+  width: 100%;
+  box-shadow: 4px 4px 10px hsl(0deg, 0%, 90%);
+  font-family: "Roboto", sans-serif;
+}
+
+.navbar {
+  width: 90%;
+  margin: 0 auto;
+  padding: 10px 0;
+  display: flex;
+  justify-content: space-between;
+}
+
+.brand-logo {
+  margin-top: 0px;
+  font-size: 20px;
+  color: hsla(0deg, 54%, 60%);
+}
+.navbar > div {
+  display: flex;
+  cursor: pointer;
+  padding: 2px 10px;
+  border: 1px solid;
+  border-radius: 5px;
+  color: hsla(0deg, 54%, 60%);
+}
+
+.navbar > div > div {
+  color: hsla(0deg, 54%, 60%);
+  cursor: pointer;
+}
+
+.navbar > div > div :hover {
+  color: hsla(0deg, 54%, 60%, 0.75);
+}
+
+.authLink {
+  padding: 2px 0px 2px;
+}
+
+.authLink a {
+  color: hsla(0deg, 54%, 60%);
+}
+
+.rightArrow {
+  margin: 0 0px 2px 2px;
+  width: 0;
+  padding: 3px;
+  border: solid hsla(0deg, 54%, 60%, 0.75);
+  border-width: 0 2px 2px 0;
+  display: inline-block;
+  transition: all 0.3s ease;
+  transform: rotate(-45deg);
+}
+
+.downArrow {
+  transform: rotate(45deg) !important;
+}
+
+.featured {
+  margin-top: 200px;
+  text-align: center;
+}
+
+.featured > div {
+  display: flex;
+  flex-direction: column;
+}
+
+.featured h1 {
+  font-size: 40px;
+  color: hsla(0deg, 0%, 30%);
+}
+
+.featured p {
+  font-size: 18px;
+  margin: 20px 0 30px;
+  color: hsla(0deg, 0%, 60%);
+}
+
+.program {
+  width: 90%;
+  margin: 0 auto;
+  max-width: 400px;
+  font-size: 20px;
+  display: flex;
+  justify-content: space-around;
+}
+
+.a-normal {
+  border: 1px solid;
+  border-radius: 4px;
+  cursor: pointer;
+  padding: 4px 10px;
+}
+
+.a-normal:hover {
+  color: hsla(0deg, 10%, 60%);
+}
+
+.auth-container {
+  width: 90%;
+  margin: 75px auto 0;
+  max-width: 320px;
+  background-color: hsla(0deg, 0%, 97%);
+  box-shadow: 1px 1px 1px hsla(0deg, 0%, 90%), -1px -1px 2px hsla(0deg, 0%, 90%);
+}
+
+#registration {
+  text-align: center;
+  width: 90%;
+  padding: 20px 0 40px;
+  margin: 0 auto;
+}
+
+.reg-header {
+  font-size: 24px;
+  margin-bottom: 20px;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+}
+
+label {
+  font-size: 15px;
+  margin: 10px 0 5px;
+}
+
+input {
+  height: 20px;
+  border: 1px solid;
+  border-radius: 4px;
+}
+
+.remember-me,
+.submit-btn {
+  margin: 10px 0 0;
+  text-align: center;
+}
+
+input[type="submit"] {
+  margin-top: 10px;
+  font-size: 18px;
+  width: 100px;
+  height: 30px;
+  border: 1px solid;
+  color: hsla(0deg, 54%, 60%);
+  background-color: white;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+input[type="submit"]:hover {
+  color: hsla(0deg, 10%, 40%);
+}
+
+.error {
+  color: hsla(0deg, 54%, 60%, 0.9);
+  font-size: 12px;
+  font-weight: bold;
+}
+
+.account {
+  margin-top: 20px;
+  font-size: 15px;
+}
+
+.account a:hover {
+  color: hsla(0deg, 54%, 60%, 0.6);
+}
+
+.profile-img {
+  margin-right: 10px;
+  width: 30px;
+}
+
+.content {
+  font-size: 22px;
+  width: 90%;
+  margin: 50px auto 0;
+  padding: 0 10px;
+}
+
+.content > div {
+  margin-bottom: 50px;
+}
+
+.course {
+  padding: 10px 10px;
+  max-width: 900px;
+  margin: 10px 0;
+  display: flex;
+  flex-direction: column;
+  border: 1px solid hsla(0deg, 0%, 97%);
+  box-shadow: 0px 0px 10px hsla(120deg, 40%, 87%);
+  margin-bottom: 20px;
+}
+
+.courseName {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.courseName > div {
+  color: hsla(0deg, 54%, 60%);
+}
+
+.rightArrowLg {
+  margin: 6px;
+  width: 0;
+  padding: 8px;
+  border: solid black;
+  border-width: 0 2px 2px 0;
+  display: inline-block;
+  transition: all 0.3s ease;
+  transform: rotate(-45deg);
+}
+
+.rightArrowLg :hover {
+  border: green;
+}
+
+.courseDescription {
+  margin-top: 16px;
+  width: 100%;
+  font-size: 15px;
+  line-height: 1.5;
+  grid-area: 2 / 1 / span 1 / span 2;
+  color: hsla(0deg, 0%, 50%);
+  box-shadow: inset 2px 2px 10px hsla(0deg, 0%, 90%);
+}
+
+.courseDescription > p {
+  padding: 10px;
+}
+
+/* The container <div> - needed to position the dropdown content */
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.dropbtn {
+  font-size: 16px;
+  border: none;
+  cursor: pointer;
+}
+
+/* Dropdown Content (Hidden by Default) */
+.dropdownContent {
+  display: none;
+  position: absolute;
+  background-color: #f9f9f9;
+  min-width: 100px;
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+  z-index: 1;
+  top: 37px;
+  right: -22px;
+}
+
+/* Links inside the dropdown */
+.dropdownContent a {
+  color: hsla(0deg, 0%, 60%);
+  padding: 6px 12px;
+  text-decoration: none;
+  display: block;
+}
+
+.show {
+  display: block !important;
+}
+
+/* Change color of dropdown links on hover */
+.dropdownContent a:hover {
+  background-color: #f1f1f1;
+}
+
+/** Lessons **/
+.courseHeader {
+  text-align: center;
+  margin: 20px auto;
+}
+
+.courseHeader h1 {
+  color: hsla(0deg, 0%, 50%);
+  font-weight: 500;
+  font-size: 22px;
+}
+
+.LessonContainer {
+  width: 90%;
+  max-width: 550px;
+  margin: 0 auto;
+}
+
+.lesson {
+  display: flex;
+  border: 1px solid hsla(0deg, 0%, 97%);
+  border-radius: 5px;
+  box-shadow: 0px 0px 10px hsla(120deg, 40%, 90%);
+  margin: 10px auto;
+  padding: 5px 10px;
+  cursor: pointer;
+  position: relative;
+}
+
+.lesson:hover {
+  color: hsla(0deg, 54%, 60%);
+  background-color: hsla(120deg, 40%, 90%);
+}
+
+.lesson a {
+  color: hsla(0deg, 10%, 30%);
+}
+
+.lesson h1 {
+  display: inline;
+  font-weight: 500;
+  font-size: 16px;
+  min-width: 85px;
+}
+
+.lesson p {
+  justify-self: flex-end;
+  margin: 0 20px 0 0px;
+  display: inline;
+  font-size: 15px;
+}
+
+.lesson > a > div {
+  position: absolute;
+  right: 8px;
+  display: inline;
+  align-self: center;
+}
+
+.LessonHeader {
+  font-size: 14px;
+  width: 90%;
+  max-width: 800px;
+  display: flex;
+  margin: 16px auto;
+  border: 1px solid hsla(0deg, 0%, 97%);
+  border-radius: 5px;
+  box-shadow: 0px 0px 10px hsla(120deg, 40%, 90%);
+  padding: 5px 10px;
+  cursor: pointer;
+  position: relative;
+}
+
+.LessonHeader h1 {
+  font-size: 14px;
+  font-weight: 600;
+  min-width: 90px;
+}
+
+.LessonHeader p {
+  font-weight: 500;
+}
+
+.lessonDeadline {
+  font-weight: 500;
+  position: absolute;
+  align-self: center;
+  right: 5px;
+  color: white;
+  width: max-content;
+  height: max-content;
+  font-size: 11px;
+  background-color: hsla(0deg, 80%, 60%);
+  border-radius: 6px;
+  border: 1px solid hsla(0deg, 80%, 60%);
+  padding: 2px 6px;
+}
+
+.lessonStatus {
+  font-weight: 500;
+  position: absolute;
+  align-self: center;
+  right: 5px;
+  font-size: 12px;
+  color: white;
+  background-color: hsla(120deg, 50%, 60%);
+  border-radius: 6px;
+  border: 1px solid hsla(120deg, 40%, 60%);
+  padding: 1px 6px;
+  width: max-content;
+  height: max-content;
+}
+
+.deadline {
+  color: red;
+  font-size: 10px;
+}
+
+.mainContent {
+  width: 90%;
+  margin: 30px auto 20px;
+  max-width: 800px;
+}
+
+.mainContent > div > p {
+  line-height: 1.4;
+  font-size: 14px;
+  margin-bottom: 16px;
+}
+
+.slides {
+  color: hsla(0deg, 54%, 60%);
+}
+
+.slides:hover {
+  color: blue;
+  text-decoration: underline;
+}
+
+.slides:visited {
+  color: purple;
+}
+
+.bottomNav {
+  width: 90%;
+  margin: 10px auto 40px;
+  display: grid;
+  max-width: 445px;
+  grid-template-columns: 1fr 1fr;
+  grid-gap: 25px;
+}
+
+.bottomNav > div {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.bottomNav a {
+  text-decoration: underline;
+  color: hsla(0deg, 0%, 50%);
+}
+.bottomNav a:hover,
+.markComplete :hover {
+  color: blue;
+}
+
+iframe {
+  width: 90%;
+  margin: 10px auto 20px;
+  max-width: 800px;
+  height: 320px;
+  border: 1px solid black;
+}
+
+.markComplete {
+  cursor: pointer;
+  font-size: 16px;
+  background-color: white;
+  border: none;
+  text-decoration: underline;
+  color: hsla(0deg, 0%, 50%);
+}
+
+@media screen and (min-width: 720px) {
+  iframe {
+    height: 400px;
+  }
+}
+
+@media screen and (max-width: 720px) {
+  .LessonHeader {
+    display: grid;
+    grid-template-columns: 90px 1fr;
+    grid-template-rows: 1fr 30px;
+  }
+  .lessonStatus,
+  .lessonDeadline {
+    padding: 1px 6px;
+    bottom: 10px;
+    left: 10px;
+  }
+}
+
+@media screen and (max-width: 420px) {
+  .lesson h1,
+  .lesson p {
+    font-size: 14px;
+  }
+}
+
+.tasks {
+  margin-top: 24px;
+}
+
+.taskNav {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 60px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid #ddd;
+  text-transform: uppercase;
+}
+
+.taskNav ul {
+  padding-left: 5%;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+}
+
+.taskNav li {
+  list-style-type: none;
+  margin-right: 32px;
+}
+
+.taskNav li :hover {
+  color: hsla(120deg, 40%, 60%);
+}
+
+.single {
+  font-size: 14px;
+  width: 90%;
+  max-width: 550px;
+  display: flex;
+  flex-direction: column;
+  border: 1px solid hsla(0deg, 0%, 97%);
+  border-radius: 5px;
+  box-shadow: 0px 0px 10px hsla(120deg, 40%, 90%);
+  margin: 10px auto;
+  padding: 5px 10px;
+  position: relative;
+}
+
+.delete {
+  position: absolute;
+  top: 0;
+  right: 0;
+  border-radius: 50%;
+  padding: 8px;
+}
+
+.delete:hover {
+  cursor: pointer;
+  box-shadow: 1px 2px 3px rgba(0, 0, 0, 0.2);
+}
+
+.taskDescription {
+  font-weight: 400;
+  font-size: 15px;
+}
+
+.taskDeadline,
+.taskStatus {
+  color: white;
+  border: 1px solid;
+  border-radius: 12px;
+  padding: 2px 10px;
+  margin-top: 10px;
+  width: max-content;
+}
+
+.taskStatus {
+  background-color: hsla(120deg, 50%, 70%);
+}
+
+.taskDeadline {
+  background-color: red;
+}
+
+.taskContent {
+  width: 90%;
+  margin: 50px auto;
+  max-width: 550px;
+}
+
+textarea {
+  height: 100px;
+}
+
+@media screen and (max-width: 325px) {
+  .taskNav ul {
+    padding: 0 1%;
+    margin: 0 auto;
+  }
+
+  .taskNav li {
+    font-size: 15px;
+  }
+
+  .taskDeadline,
+  .taskStatus,
+  .taskDescription {
+    font-size: 12px;
+  }
+}
+
+input[type="file"] {
+  display: none;
+}
+
+.fileUpload {
+  border: 1px solid #ccc;
+  display: inline-block;
+  padding: 6px 12px;
+  cursor: pointer;
+}
