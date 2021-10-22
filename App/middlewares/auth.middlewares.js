@@ -35,8 +35,6 @@ const checkUser = async (req, res, next) => {
           next();
         } else {
           let user = await User.findById(decodedToken._id);
-          const userObject = user.toObject();
-          delete userObject.password;
           
           res.locals.user = user;
 
