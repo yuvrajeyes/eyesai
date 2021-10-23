@@ -650,16 +650,20 @@ input[type="file"] {
   margin-top: 30px;
 }
 
-.userdetailsEdit > div {
+.userdetailsEdit > div > div {
+  width: 360px;
   display: flex;
-  /* justify-content: space-between;  */
-  align-items: center; 
+  justify-content: space-between; 
+  align-items: center;
 }
 
-.userdetailsEdit > div > input {
+.userdetailsEdit > div > div > input {
   margin-top: 3px;
   height: 16px;
-  min-width: 200px;
+  min-width: 230px;
+  max-width: 400px;
+  border-radius: 0;
+  background-color: white;
 }
 
 .userdetailsEdit input[type='submit'] {
@@ -672,8 +676,11 @@ input[type="file"] {
   color: hsla(0deg, 10%, 40%);
 }
 
-@media screen and (max-width: 360px) {
-  .userdetailsEdit > div {
+@media screen and (max-width: 400px) {
+  .userdetailsEdit > div > div {
+    width: 90%;
     flex-direction: column;
+    margin-right: auto;
+    margin-left: auto;
   }
 }

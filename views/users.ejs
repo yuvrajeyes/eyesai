@@ -18,28 +18,54 @@
         </div>
 
         <div>
-          <label for="name">Name</label>
-          <input type="text" name="name" id="" value="<%= user.name %>" disabled>
-        </div>
-        <div class="name error"></div>
+          <div>
+            <label for="name">Name</label>
+            <input type="text" name="name" id="" value="<%= user.name %>" disabled>
+          </div>
+          <div class="name error"></div>
 
-        <div>
-          <label for="username">Username</label>
-          <input type="text" name="username" value="<%= user.username %>" disabled>
-        </div>      
-        <div class="username error"></div>
+          <div>
+            <label for="username">Username</label>
+            <input type="text" name="username" value="<%= user.username %>" disabled>
+          </div>      
+          <div class="username error"></div>
 
-        <div>
-          <label for="email">Email</label>
-          <input type="email" name="email" value="<%= user.email %>" disabled>
-        </div>
-        <div class="email error"></div>
+          <div>
+            <label for="email">Email</label>
+            <input type="email" name="email" value="<%= user.email %>" disabled>
+          </div>
+          <div class="email error"></div>
 
-        <div>
-          <label for="mobile">Contact</label>
-          <input type="tel" name="mobile" value="<%= user.mobile %>" disabled>
+          <div>
+            <label for="mobile">Contact</label>
+            <input type="tel" name="mobile" value="<%= user.mobile %>" disabled>
+          </div>
+          <div class="mobile error"></div>
+
+          <div style="margin-top: 20px;">
+            <h3>Social Profiles</h3>
+          </div>
+
+          <div>
+            <label for="facebook">Facebook</label>
+            <input type="text" name="facebook" value="<%= user.social_profile.facebook %>" disabled>
+          </div>
+
+          <div>
+            <label for="instagram">Instagram</label>
+            <input type="text" name="instagram" value="<%= user.social_profile.instagram %>" disabled>
+          </div>
+
+          <div>
+            <label for="linkedin">LinkedIn</label>
+            <input type="text" name="linkedin" value="<%= user.social_profile.linkedin %>" disabled>
+          </div>
+
+          <div>
+            <label for="instagram">Github</label>
+            <input type="text" name="github" value="<%= user.social_profile.github %>" disabled>
+          </div>
         </div>
-        <div class="mobile error"></div>
 
       </form>
     </div>
@@ -100,9 +126,8 @@
         btn.type = "submit";
         btn.value = "Update";
         btn.classList.add("updateUser");
-        console.log(btn);
         userdetailsEdit.appendChild(btn);
-        edit.innerHTML = '<img scr="./images/left-arrow.png" alt="Back';
+        edit.innerHTML = 'Back';
       } else {
         input.forEach((inp) => {
           inp.disabled = true;
