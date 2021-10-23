@@ -47,7 +47,7 @@
           <label for="description">Task Description:</label>
           <textarea id="body" name="Description"><%= singleTask.Description %> </textarea>
           <div>
-            <label for="taskStatus">Completed ?:</label>
+            <label for="taskStatus" style="display: inline;">Completed ?:</label>
             <% if (singleTask.Completed == true) { %> 
               <input type='checkbox' name='Completed' checked>
             <% } else { %> 
