@@ -48,20 +48,24 @@ router.post("/courseLessons/:id", async (req, res) => {
   const id = req.params.id;
   const token = req.cookies.jwt;
   if (token) {
-    await jwt.verify(token, JWT_SECRET, async (err, decodedToken) => {
-      if (err) {
-        console.log(err.message);
-        next();
-      } else {
-        let user = await User.findById(decodedToken._id);
-        var index = user.courses.findIndex(function (item, i) {
-          return item._id.toString() === id.toString();
-        });
-        user.courses[index].Completed = true;
-        await user.save();
-        res.redirect("/courseLessons");
+    await jwt.verify(
+      token,
+      process.env.JWT_SECRET,
+      async (err, decodedToken) => {
+        if (err) {
+          console.log(err.message);
+          next();
+        } else {
+          let user = await User.findById(decodedToken._id);
+          var index = user.courses.findIndex(function (item, i) {
+            return item._id.toString() === id.toString();
+          });
+          user.courses[index].Completed = true;
+          await user.save();
+          res.redirect("/courseLessons");
+        }
       }
-    });
+    );
   } else {
     next();
   }

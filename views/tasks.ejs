@@ -5,19 +5,27 @@
   <div class="tasks">
     <%- include("./partials/tasknav.ejs") %>
 
+    <% let flag = 0; %> 
     <% if (tasks.length > 0) { %>
       <% tasks.forEach(task => { %>
         <% if ( task.owner.equals(user._id)) { %> 
-          <a class="single" href="/tasks/<%= task._id %>" >
-            <h3 class="taskDescription"><%= task.Description %></h3>
-            <% if (! task.Completed) { %>
-              <p class="taskDeadline">Deadline: <%= task.Deadline %></p>
-            <% } else { %>
-              <p class="taskStatus">Completed</p>
-            <% } %>
-          </a>
-        <% } %> 
+          <% flag = 1; %>
+          <div class="task-list">
+            <a class="single" href="/tasks/<%= task._id %>" >
+              <h3 class="taskDescription"><%= task.Description %></h3>
+              <% if (! task.Completed) { %>
+                <p class="taskDeadline">Deadline: <%= task.Deadline %></p>
+              <% } else { %>
+                <p class="taskStatus">Completed</p>
+              <% } %>
+              <a class="delete" data-doc="<%= task._id %>"><img src="./images/trashcan.svg" alt=""></a>
+            </a>
+          </div>
+        <% } %>
       <% }) %>
+      <% if ( flag == 0 ) {%> 
+        <p style="color: hsla(0deg, 10%, 50%); width: 90%; margin: 50px auto; max-width: 550px;">There are no tasks to display...</p>
+      <% } %> 
     <% } else { %>
       <p style="color: hsla(0deg, 10%, 50%); width: 90%; margin: 50px auto; max-width: 550px;">There are no tasks to display...</p>
     <% } %>

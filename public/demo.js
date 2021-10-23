@@ -15,14 +15,17 @@ authLink.addEventListener("click", function () {
 });
 
 
-const trashcan = document.querySelector(".delete");
+const trashcans = document.querySelectorAll(".delete");
 
-trashcan.addEventListener("click", (e) => {
-  const endpoint = `/tasks/${trashcan.dataset.doc}`;
+trashcans.forEach((trashcan) => {
+  trashcan.addEventListener("click", (e) => {
+    const endpoint = `/tasks/${trashcan.dataset.doc}`;
 
-  fetch(endpoint, {
-    method: "DELETE",
-  })
-    .then(() => {})
-    .catch((err) => console.log(err));
+    fetch(endpoint, {
+      method: "DELETE",
+    })
+      .then((response) => response.json())
+      .then((data) => (window.location.href = data.redirect))
+      .catch((err) => console.log(err));
+  });
 });

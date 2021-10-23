@@ -126,7 +126,7 @@ userSchema.pre("save", async function (next) {
 userSchema.methods.generateAuthToken = async function () {
   const user = this;
   const token = jwt.sign({ _id: user._id.toString() }, process.env.JWT_SECRET, {
-    expiresIn: process.env.maxAge,
+    expiresIn: "7 days",
   });
   await user.save();
   return token;
@@ -146,7 +146,7 @@ userSchema.statics.login = async (email, password) => {
 
 // Remove all courses of a user, if user is deleted
 userSchema.pre("remove", async function (next) {
-  await Course.deleteMany({ owner: this._id });
+  await Task.deleteMany({ owner: this._id });
   next();
 });
 
