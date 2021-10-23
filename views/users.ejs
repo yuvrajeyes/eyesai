@@ -2,29 +2,87 @@
 <html lang="en">
   <%- include("./partials/head.ejs") %>
 
-  <section>
+  <section class="userdetails">
     <div>
       <div>
-        <h2><%= user.name %> </h2>
+        <h3><%= user.name %> </h3>
         <p><%= user.email %> </p>
       </div>
     </div>
 
     <div>
-      <form action="" method="post" class="userdetails">
-        <h2>Account</h2>
-        <label for="name">Name</label>
-        <input type="text" name="name" id="" placeholder="<%= user.name %>" disabled>
-        <label for="username">Username</label>
-        <input type="text" name="username" placeholder="<%= user.username %>" disabled>
-        <label for="email">Email</label>
-        <input type="email" name="email" placeholder="<%= user.email %>" disabled>
-        <label for="mobile">Contact Number</label>
-        <input type="tel" name="mobile" placeholder="<%= user.mobile %>" disabled>
+      <form action="/users/<%= user._id %>" class="userdetailsEdit">
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 16px;">
+          <h2>Account</h2>
+          <span class="edit" style="cursor: pointer; text-decoration: underline;">Edit</span>
+        </div>
+
+        <div>
+          <label for="name">Name</label>
+          <input type="text" name="name" id="" value="<%= user.name %>" disabled>
+        </div>
+        <div class="name error"></div>
+
+        <div>
+          <label for="username">Username</label>
+          <input type="text" name="username" value="<%= user.username %>" disabled>
+        </div>      
+        <div class="username error"></div>
+
+        <div>
+          <label for="email">Email</label>
+          <input type="email" name="email" value="<%= user.email %>" disabled>
+        </div>
+        <div class="email error"></div>
+
+        <div>
+          <label for="mobile">Contact</label>
+          <input type="tel" name="mobile" value="<%= user.mobile %>" disabled>
+        </div>
+        <div class="mobile error"></div>
+
       </form>
     </div>
   </section>
 
+  <script>
+    const form = document.querySelector('form');
+
+    const emailError = document.querySelector(".email.error");
+      const nameError = document.querySelector(".name.error");
+      const usernameError = document.querySelector(".username.error");
+      const mobileError = document.querySelector(".mobile.error");
+
+    form.addEventListener("submit", async (e) => {
+      e.preventDefault();
+            
+      try {
+        const res = await fetch("/users/<%= user._id %>", {
+          method: "PATCH",
+          body: JSON.stringify({
+            name: form.name.value,
+            username: form.username.value,
+            email: form.email.value,
+            mobile: form.mobile.value,
+          }),
+          headers: { "Content-Type": "application/json" },
+        });
+        const data = await res.json();
+        console.log(data);
+        if (data.errors) {
+          nameError.textContent = data.errors.name;
+          usernameError.textContent = data.errors.username;
+          emailError.textContent = data.errors.email;
+          mobileError.textContent = data.errors.mobile;
+        }
+        if (data.user) {
+          location.assign("/users");
+        }
+      } catch (err) {
+        console.log(err);
+      }
+    });
+  </script>
   <script src="demo.js"></script>
 </body>
 </html>

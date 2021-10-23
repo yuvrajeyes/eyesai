@@ -25,7 +25,7 @@ const userSchema = new mongoose.Schema(
   {
     name: {
       type: String,
-      required: [true, "Can't be blank, please enter an name"],
+      required: [true, "Can't be blank, please enter a name"],
       trim: true,
     },
     username: {

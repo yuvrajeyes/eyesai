@@ -8,21 +8,15 @@ module.exports.user_get = async (req, res) => {
 };
 
 module.exports.user_update = async (req, res) => {
+  const id = req.params.id;
   const updates = Object.keys(req.body);
-  const allowedUpdates = ["name", "username", "email", "password", "avatar"];
-  const isValidOperation = updates.every((update) => {
-    allowedUpdates.includes(update);
-  });
-
-  if (!isValidOperation) {
-    throw Error("invalid updates");
-  }
   try {
+    let user = await User.findById(id);
     updates.forEach((update) => {
-      req.user[update] = req.body[update];
+      user[update] = req.body[update];
     });
-    await req.user.save();
-    res.status(200).json({ user: req.user._id });
+    await user.save();
+    res.status(200).json({ user: user._id });
   } catch (err) {
     console.log(err);
     const errors = handleErrors(err);

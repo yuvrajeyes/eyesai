@@ -15,15 +15,15 @@ router.post("/users/signin", auth.signin_post); // working, done
 
 router.get("/users/logout", requireAuth, auth.logout_get); //working, done
 
-router.get("/users/me", requireAuth, user.user_get);
+router.get("/users/:id", requireAuth, user.user_get);
 
-router.patch("/users/me", requireAuth, user.user_update);
+router.patch("/users/:id", requireAuth, user.user_update);
 
-router.delete("/users/me", requireAuth, user.delete_user);
+router.delete("/users/:id", requireAuth, user.delete_user);
 
-router.post("/users/me/avatar", requireAuth, user.avatar_post);
+router.post("/users/:id/avatar", requireAuth, user.avatar_post);
 
-router.delete("/users/me/avatar", requireAuth, user.avatar_delete);
+router.delete("/users/:id/avatar", requireAuth, user.avatar_delete);
 
 router.get("/users/:id/avatar", requireAuth, user.avatar_get);
 

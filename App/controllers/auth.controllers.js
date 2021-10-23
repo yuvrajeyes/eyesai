@@ -63,6 +63,8 @@ const handleErrors = (err) => {
   return errors;
 };
 
+module.exports = { handleErrors };
+
 module.exports.signup_get = (req, res) => {
   res.render("signup");
 };

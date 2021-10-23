@@ -146,7 +146,7 @@ header {
   margin-bottom: 20px;
 }
 
-form {
+.signinForm, .signupForm {
   display: flex;
   flex-direction: column;
 }
@@ -635,4 +635,43 @@ input[type="file"] {
   display: inline-block;
   padding: 6px 12px;
   cursor: pointer;
+}
+
+.userdetails {
+  width: 90%;
+  margin: 50px auto;
+}
+
+.userdetailsEdit {
+  display: flex;
+  flex-direction: column;
+  margin-top: 30px;
+}
+
+.userdetailsEdit > div {
+  display: flex;
+  /* justify-content: space-between;  */
+  align-items: center; 
+}
+
+.userdetailsEdit > div > input {
+  margin-top: 3px;
+  height: 16px;
+  min-width: 200px;
+}
+
+.userdetailsEdit input[type='submit'] {
+  margin: 20px auto;
+  height: 24px;
+  max-width: 80px;
+}
+
+.userdetailsEdit input[type="submit"]:hover {
+  color: hsla(0deg, 10%, 40%);
+}
+
+@media screen and (max-width: 360px) {
+  .userdetailsEdit > div {
+    flex-direction: column;
+  }
 }
